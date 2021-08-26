@@ -1,0 +1,12 @@
+.alert-msg {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 175px;
+  right: 30px;
+  background-color: #ED4854;
+  padding: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #ffffff;
+}

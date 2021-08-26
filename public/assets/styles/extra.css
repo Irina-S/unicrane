@@ -1,0 +1,11 @@
+.list-item div{
+    width: 100%;
+}
+
+.platform-list__item div{
+    display: inherit;
+}
+
+.advantages-item__title{
+    white-space: normal;
+}
