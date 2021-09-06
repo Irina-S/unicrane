@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
     const body = document.body;
 
     const header = document.querySelector('.header');
@@ -32,9 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (fullPage) {
         new fullpage(fullPage, {
+            responsiveWidth: 1230,
             navigation: true,
             navigationPosition: 'right',
-            autoScrolling: true,
+            //autoScrolling: true,
             scrollOverflow: true,
             fitToSection: false,
             touchSensitivity: 100,
@@ -80,7 +81,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ОТКРЫТИЕ ФОРМЫ ЗАЯВКИ И ПРОСМОТР СКАНОВ ОТЗЫВОВ, ГАЛЕРЕЯ ИТП
 
-    $('[data-fancybox]').fancybox();
+    try {
+        $('[data-fancybox]').fancybox();
+    } catch (e) {}
+
+
 
     //------------------------------------------------
 
@@ -209,9 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const winTop = $(window).scrollTop();
         const winBottom = winTop + $(window).innerHeight();
         const elemTop = $(elem).offset().top;
-        console.log($(elem).find('.nav-target__anchor').attr('name'));
-        console.log(winTop, winBottom, elemTop);
-        console.log(elemTop > winTop && elemTop < winBottom);
         if (elemTop > winTop && elemTop < winBottom)
             return true
         else
@@ -237,5 +239,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //------------------------------------------------
+
+    //ТЕМНЫЙ ФОН ДЛЯ ШАПКИ НА ГЛАВНОЙ ПРИ ПРОКРУТКЕ
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > $('body:not(.regular-page) .header').height())
+            $('.header').addClass('header--bg')
+        else
+            $('.header').removeClass('header--bg');
+
+    });
 
 });
