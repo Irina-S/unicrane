@@ -1,5 +1,5 @@
 require('./bootstrap');
-import {store} from './store'
+import { store } from './store'
 
 window.Vue = require('vue');
 
@@ -10,4 +10,7 @@ Vue.component('calculate-component', require('./components/CalculateComponent.vu
 const app = new Vue({
     store,
     el: '#app',
+    mounted: function() {
+        console.log('app is mounted');
+    }
 });

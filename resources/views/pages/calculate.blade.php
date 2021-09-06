@@ -26,7 +26,9 @@
 
         </div>
         <div class="choose-crane-type" id="app">
-            <calculate-component ref="calculate"></calculate-component>
+            <div class="content-container content-container--regular">
+                <calculate-component ref="calculate"></calculate-component>
+            </div>  
         </div>
 
     </div>

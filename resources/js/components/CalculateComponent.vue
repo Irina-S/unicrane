@@ -21,15 +21,17 @@
   import CalculateItem5Component from './CalculateItem5Component'
   import CalculateItem6Component from './CalculateItem6Component'
   import CalculateItem7Component from './CalculateItem7Component'
+  import ButtonNext from './ButtonNext'
   export default {
     name: "CalculateComponent",
     components: { VueSlickCarousel, CalculateItem1Component, CalculateItem2Component, CalculateItem3Component,
-      CalculateItem4Component, CalculateItem5Component, CalculateItem6Component, CalculateItem7Component },
+      CalculateItem4Component, CalculateItem5Component, CalculateItem6Component, CalculateItem7Component},
     data() {
       return {
         newProductsSliderSettings: {
           arrows: false,
           touchMove: false,
+          infinite:false
         },
       }
     },
