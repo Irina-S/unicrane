@@ -1,4 +1,5 @@
 require('./bootstrap');
+import './app.scss';
 import { store } from './store'
 
 window.Vue = require('vue');
