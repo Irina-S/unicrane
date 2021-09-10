@@ -1,13 +1,3 @@
-//Опорные
-export const supported = {
-
-}
-
-//Подвесные
-export const underslung = {
-
-}
-
 //Электрические
 export const electric = {
     //Электрические опорные
@@ -64,5 +54,18 @@ export const electric = {
 
 //Ручные
 export const manual = {
-
+    supported: {
+        "1": {},
+        "2": {},
+        "3.2": {},
+        "5": {},
+        "10": {}
+    },
+    underslung: {
+        "1": {},
+        "2": {},
+        "3.2": {},
+        "5": {},
+        "10": {}
+    }
 }

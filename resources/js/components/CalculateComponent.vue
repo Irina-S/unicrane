@@ -1,13 +1,13 @@
 <template>
         <VueSlickCarousel v-bind="newProductsSliderSettings" ref="calculate_slider">
-            <CalculateItem1Component class="content-container-vue">
-            </CalculateItem1Component>
-            <CalculateItem2Component class="content-container-vue"></CalculateItem2Component>
-            <CalculateItem3Component class="content-container-vue"></CalculateItem3Component>
-            <CalculateItem4Component class="content-container-vue"></CalculateItem4Component>
-            <CalculateItem5Component class="content-container-vue"></CalculateItem5Component>
-            <CalculateItem6Component class="content-container-vue"></CalculateItem6Component>
-            <CalculateItem7Component class="content-container-vue"></CalculateItem7Component>
+            <CalculateItem1Component></CalculateItem1Component>
+            <CalculateItem2Component></CalculateItem2Component>
+            <CalculateItem3Component></CalculateItem3Component>
+            <CalculateItem4Component></CalculateItem4Component>
+            <CalculateItem5Component></CalculateItem5Component>
+            <CalculateItem52Component></CalculateItem52Component>
+            <CalculateItem6bComponent></CalculateItem6bComponent>
+            <CalculateItem6b2Component></CalculateItem6b2Component>
         </VueSlickCarousel>
 </template>
 
@@ -19,13 +19,15 @@
   import CalculateItem3Component from './CalculateItem3Component'
   import CalculateItem4Component from './CalculateItem4Component'
   import CalculateItem5Component from './CalculateItem5Component'
-  import CalculateItem6Component from './CalculateItem6Component'
-  import CalculateItem7Component from './CalculateItem7Component'
+  import CalculateItem52Component from './CalculateItem52Component'
+  import CalculateItem6bComponent from './CalculateItem6bComponent'
+  import CalculateItem6b2Component from './CalculateItem6b2Component'
   import ButtonNext from './ButtonNext'
   export default {
     name: "CalculateComponent",
     components: { VueSlickCarousel, CalculateItem1Component, CalculateItem2Component, CalculateItem3Component,
-      CalculateItem4Component, CalculateItem5Component, CalculateItem6Component, CalculateItem7Component},
+      CalculateItem4Component, CalculateItem5Component, CalculateItem52Component, CalculateItem6bComponent,
+      CalculateItem6b2Component},
     data() {
       return {
         newProductsSliderSettings: {
@@ -44,9 +46,6 @@
 </script>
 
 <style lang="scss">
-    .content-container-vue {
-        max-width: none!important;
-    }
     .choose-crane-type__button {
         cursor: pointer;
     }

@@ -4,94 +4,50 @@
               Шаг 2 из 7
           </div>
           <h2 class="choose-crane-type__header">2. Выбор типа крана</h2>
-          <div class="choose-crane-type__weight-grid">
-              <a href="javascript:void(0);" class="weight-card" id="select2-1">
-                  <div class="weight-card__text">
-                      <div class="weight-card__title">0.5T</div>
-                      <div class="weight-card__price">от 89 880 ₽</div>
-                  </div>
-                  <div class="weight-card__weight-bg">0.5T</div>
-              </a>
-              <a href="javascript:void(0);" class="weight-card" id="select2-2">
-                  <div class="weight-card__text">
-                      <div class="weight-card__title">0.5T</div>
-                      <div class="weight-card__price">от 89 880 ₽</div>
-                  </div>
-                  <div class="weight-card__weight-bg">0.5T</div>
-              </a>
-              <a href="javascript:void(0);" class="weight-card" id="select2-3">
-                  <div class="weight-card__text">
-                      <div class="weight-card__title">0.5T</div>
-                      <div class="weight-card__price">от 89 880 ₽</div>
-                  </div>
-                  <div class="weight-card__weight-bg">0.5T</div>
-              </a>
-              <a href="javascript:void(0);" class="weight-card" id="select2-4">
-                  <div class="weight-card__text">
-                      <div class="weight-card__title">0.5T</div>
-                      <div class="weight-card__price">от 89 880 ₽</div>
-                  </div>
-                  <div class="weight-card__weight-bg">0.5T</div>
-              </a>
-          </div>
-          <ButtonNext></ButtonNext>
+
+          <div class="choose-crane-type__grid two">
+            <PriceCard inputName="handle" 
+                       value="supported" 
+                       imgSrc="assets/img/price-card-image-1.svg"
+                       title="Опорный"
+                       priceFrom="89 880"
+                       @input="onInput($event)"
+                       v-bind:curVal="stepValue">
+            </PriceCard>
+            <PriceCard inputName="type" 
+                       value="underslung" 
+                       imgSrc="assets/img/price-card-image-2.svg"
+                       title="Подвесной"
+                       priceFrom="67 880"
+                       @input="onInput($event)"
+                       v-bind:curVal="stepValue">
+            </PriceCard>
+
+          </div>   
+
+          <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
       </div>
 </template>
 
 <script>
+  // import {mapActions} from "vuex/dist/vuex.mjs";
+  import {stepMixin} from './mixins.js';
   import ButtonNext from "./ButtonNext"
+  import PriceCard from "./PriceCard"
+
   export default {
     name: "CalculateItem2Component",
-    components:{ButtonNext},
-    data() {
-      return {
-        selected: true,
-        products: [
-          {
-            'name': '0.5T',
-            'price': 89880
-          },
-          {
-            'name': '0.5T',
-            'price': 67880
-          },
-          {
-            'name': '0.5T',
-            'price': 67880
-          },
-          {
-            'name': '0.5T',
-            'price': 67880
-          },
-        ],
-      }
-    },
+    components:{ButtonNext, PriceCard},
+    mixins:[stepMixin],
     methods: {
-      nextSlide() {
-        if (this.selected) {
-          this.$root.$refs.calculate.$refs.calculate_slider.next();
+        onInput:function(valueObj){
+          this.stepValue = valueObj.value;
+          this.$store.dispatch('select_type', valueObj);
         }
-      },
-      // select(id, value) {
-      //   console.log(id);
-      //   this.selected = true;
-      //   this.$store.dispatch('select_page2', this.products[value]);
-      //
-      //   let items = document.querySelectorAll('.weight-card');
-      //   items.forEach((item) => {
-      //     item.classList.remove('choose-crane-type__item-select');
-      //   });
-      //   document.getElementById(id).classList.add('choose-crane-type__item-select');
-      // },
-    },
+    }
   }
 </script>
 
-<style scoped>
-    .choose-crane-type__item {
-        cursor: pointer;
-    }
-    .choose-crane-type__item-select {
-        border-bottom: solid 2px #b5212e;
-    }
+<style lang="scss" scoped>
+
 </style>

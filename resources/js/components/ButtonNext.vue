@@ -1,5 +1,5 @@
 <template>
-    <button v-bind:disabled="isDisabled" @click.prevent="nextStep" class="choose-crane-type__button button"><span class="button__text">Следующий шаг</span></button>
+    <button v-bind:disabled="isDisabled" @click="nextStep" class="choose-crane-type__button button"><span class="button__text">Следующий шаг</span></button>
 </template>
 
 <script>

@@ -37,11 +37,16 @@
     grid-template-columns: 1fr 1fr 1fr
 }
 
+.choose-crane-type__grid.four {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr)
+}
+
 .price-card {
     transition: all 0.3s ease 0s;
     background: #fafafa;
     padding-top: 34px;
-    width: 460px;
+    // width: 460px;
     max-width: 100%;
     height: 270px;
     position: relative;
@@ -155,4 +160,13 @@
     font-size: 83px;
     color: #e8e8e8;
     line-height: 83px
+}
+
+.choose-crane-type__item {
+    cursor: pointer;
+    border-bottom: solid 2px transparent;
+}
+
+.choose-crane-type__item-select {
+    border-bottom: solid 2px #b5212e;
 }

@@ -1,69 +1,81 @@
 export default {
-  state: {
-    page1: null,
-    page2: null,
-    page3: null,
-    page4: null,
-    page5: null,
-    page6: null,
-    page7: null,
-  },
+    state: {
+        handle: null,
+        handleName: null,
+        type: null,
+        typeName: null,
+        lcapacity: null,
+        prod: null,
+        prodName: null,
+        placement: null,
+        placementName: null,
+        tmode: null,
+        tmodeName: null,
+        hasway: null,
+        haswayName: null,
+        haswayorrail: null,
+        haswayorrailName: null,
+    },
 
-  getters: {
-    page1: state => state.page1,
-    page2: state => state.page2,
-    page3: state => state.page3,
-    page4: state => state.page4,
-    page5: state => state.page5,
-    page6: state => state.page6,
-    page7: state => state.page7,
-  },
+    mutations: {
+        set_handle: (state, payload) => {
+            state.handle = payload.value;
+            state.handleName = payload.valueName;
+        },
+        set_type: (state, payload) => {
+            state.type = payload.value;
+            state.typeName = payload.valueName;
+        },
+        set_lcapacity: (state, payload) => {
+            state.lcapacity = payload.value;
+        },
+        set_prod: (state, payload) => {
+            state.prod = payload.value;
+            state.prodName = payload.valueName;
+        },
+        set_placement: (state, payload) => {
+            state.placement = payload.value;
+            state.placementName = payload.valueName;
+        },
+        set_tmode: (state, payload) => {
+            state.tmode = payload.value;
+            state.tmodeName = payload.valueName;
+        },
+        set_hasway: (state, payload) => {
+            state.hasway = payload.value;
+            state.haswayName = payload.valueName;
+        },
+        set_haswayorrail: (state, payload) => {
+            state.haswayorrail = payload.value;
+            state.haswayorrailName = payload.valueName;
+        },
 
-  mutations: {
-    set_page1: (state, payload) => {
-      state.page1 = payload;
     },
-    set_page2: (state, payload) => {
-      state.page2 = payload;
-    },
-    set_page3: (state, payload) => {
-      state.page3 = payload;
-    },
-    set_page4: (state, payload) => {
-      state.page4 = payload;
-    },
-    set_page5: (state, payload) => {
-      state.page5 = payload;
-    },
-    set_page6: (state, payload) => {
-      state.page6 = payload;
-    },
-    set_page7: (state, payload) => {
-      state.page7 = payload;
-    },
-  },
 
-  actions: {
-    select_page1: ({commit}, credentials) => {
-      commit('set_page1', credentials);
-    },
-    select_page2: ({commit}, credentials) => {
-      commit('set_page2', credentials);
-    },
-    select_page3: ({commit}, credentials) => {
-      commit('set_page3', credentials);
-    },
-    select_page4: ({commit}, credentials) => {
-      commit('set_page4', credentials);
-    },
-    select_page5: ({commit}, credentials) => {
-      commit('set_page5', credentials);
-    },
-    select_page6: ({commit}, credentials) => {
-      commit('set_page6', credentials);
-    },
-    select_page7: ({commit}, credentials) => {
-      commit('set_page7', credentials);
-    },
-  }
+    actions: {
+        select_handle: ({ commit }, credentials) => {
+            commit('set_handle', credentials);
+        },
+        select_type: ({ commit }, credentials) => {
+            commit('set_type', credentials);
+        },
+        select_lcapacity: ({ commit }, credentials) => {
+            commit('set_lcapacity', credentials);
+        },
+        select_prod: ({ commit }, credentials) => {
+            commit('set_prod', credentials);
+        },
+        select_placement: ({ commit }, credentials) => {
+            commit('set_placement', credentials);
+        },
+        select_tmode: ({ commit }, credentials) => {
+            commit('set_tmode', credentials);
+        },
+        select_hasway: ({ commit }, credentials) => {
+            commit('set_hasway', credentials);
+        },
+        select_haswayorrail: ({ commit }, credentials) => {
+            commit('set_haswayorrail', credentials);
+        },
+    }
 }
