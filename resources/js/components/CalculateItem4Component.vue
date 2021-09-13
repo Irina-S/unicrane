@@ -30,7 +30,7 @@
                        v-bind:curVal="stepValue">
             </PriceCard>
         </div>
-    <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
+    <ButtonNext v-bind:isDisabled="isNextBtnDisabled" v-bind:nextSlide="nextSlideIndex"></ButtonNext>
     </div>
 </template>
 
@@ -43,6 +43,11 @@
     name: "CalculateItem4Component",
     components:{PriceCard, ButtonNext},
     mixins:[stepMixin],
+    computed:{
+      nextSlideIndex:function(){
+        return this.$store.state.calculate.handle=='electric'?null:5;
+      }
+    },
     methods: {
         onInput:function(valueObj){
           this.stepValue = valueObj.value;

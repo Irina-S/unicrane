@@ -6,8 +6,8 @@
             <CalculateItem4Component></CalculateItem4Component>
             <CalculateItem5Component></CalculateItem5Component>
             <CalculateItem52Component></CalculateItem52Component>
-            <CalculateItem6bComponent></CalculateItem6bComponent>
-            <CalculateItem6b2Component></CalculateItem6b2Component>
+            <CalculateItem6Component></CalculateItem6Component>
+            <CalculateItem7Component></CalculateItem7Component>
         </VueSlickCarousel>
 </template>
 
@@ -20,14 +20,14 @@
   import CalculateItem4Component from './CalculateItem4Component'
   import CalculateItem5Component from './CalculateItem5Component'
   import CalculateItem52Component from './CalculateItem52Component'
-  import CalculateItem6bComponent from './CalculateItem6bComponent'
-  import CalculateItem6b2Component from './CalculateItem6b2Component'
+  import CalculateItem6Component from './CalculateItem6Component'
+  import CalculateItem7Component from './CalculateItem7Component'
   import ButtonNext from './ButtonNext'
   export default {
     name: "CalculateComponent",
     components: { VueSlickCarousel, CalculateItem1Component, CalculateItem2Component, CalculateItem3Component,
-      CalculateItem4Component, CalculateItem5Component, CalculateItem52Component, CalculateItem6bComponent,
-      CalculateItem6b2Component},
+      CalculateItem4Component, CalculateItem5Component, CalculateItem52Component,
+      CalculateItem6Component, CalculateItem7Component},
     data() {
       return {
         newProductsSliderSettings: {

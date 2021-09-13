@@ -18,6 +18,7 @@ export const cardMixin = {
     data: function() {
         return {
             checkedClass: 'choose-crane-type__item-select',
+            hideClass: 'choose-crane-type__item-hide'
         }
     },
     computed: {

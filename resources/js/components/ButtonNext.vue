@@ -5,7 +5,7 @@
 <script>
     export default {
         name: "ButtonNext",
-        props:['isDisabled'],
+        props:['isDisabled', 'nextSlide'],
         data:function(){
             return {
                 
@@ -13,7 +13,12 @@
         },
         methods: {
             nextStep() {
-                this.$root.$refs.calculate.$refs.calculate_slider.next();
+                console.log('c;lick');
+                console.log(this.nextSlide);
+                if (this.nextSlide)
+                    this.$root.$refs.calculate.$refs.calculate_slider.goTo(this.nextSlide)
+                else
+                    this.$root.$refs.calculate.$refs.calculate_slider.next();
             }
         },
         mounted:function(){

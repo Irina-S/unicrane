@@ -1,5 +1,5 @@
 <template>
-    <label class="choose-crane-type__item price-card" v-bind:class="[isChecked?'choose-crane-type__item-select':'']">
+    <label class="choose-crane-type__item price-card" v-bind:class="{[checkedClass]:isChecked, [hideClass]:isHidden}">
         <input type="radio" v-bind:name="inputName" v-bind:value="value" v-model="inputVal" ref="input">
         <div class="price-card__text">
             <div class="price-card__title">{{title}}</div>
@@ -16,8 +16,13 @@
 
     export default {
         name: "PriceCard",
-        props:['inputName', 'value', 'imgSrc', 'title', 'priceFrom', 'curVal'],
+        props:['inputName', 'value', 'imgSrc', 'title', 'priceFrom', 'curVal', 'isUnderslung'],
         mixins:[cardMixin],
+        computed:{
+            isHidden:function(){
+                return isUnderslung===undefined?false:!isUnderslung;
+            }
+        }
   }
 </script>
 
