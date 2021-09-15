@@ -4,7 +4,7 @@
             Шаг 6 из 7
         </div>
         <h2 class="choose-crane-type__header">6. Крановые пути</h2>
-        <div class="choose-crane-type__grid" v-bind:class="{four:isUnderslung, two:isSupported}">
+        <div class="choose-crane-type__grid" v-bind:class="{four:isSupported, two:isUnderslung}">
             <PriceCard inputName="haswayorrail" 
                        value="hasway" 
                        imgSrc="assets/img/price-card-image-14.svg"
@@ -28,7 +28,7 @@
                        priceFrom="89 880"
                        @input="onInput($event)"
                        v-bind:curVal="stepValue"
-                       v-bind:isUnderslung="isUnderslung">
+                       v-bind:isHidden="isUnderslung">
             </PriceCard>
             <PriceCard inputName="haswayorrail" 
                        value="norail" 
@@ -37,7 +37,7 @@
                        priceFrom="67 880"
                        @input="onInput($event)"
                        v-bind:curVal="stepValue"
-                       v-bind:isUnderslung="isUnderslung">
+                       v-bind:isHidden="isUnderslung">
             </PriceCard>
 
         </div>
@@ -46,21 +46,21 @@
 </template>
 
 <script>
-  import {stepMixin} from './mixins.js'
+  import {stepMixin, storeMixin} from './mixins.js'
   import ButtonNext from "./ButtonNext"
   import PriceCard from "./PriceCard"
 
   export default {
     name: "CalculateItem6Component",
     components:{PriceCard, ButtonNext},
-    mixins:[stepMixin],
+    mixins:[stepMixin, storeMixin],
     computed:{
-      isUnderslung:function(){
-        return this.$store.state.calculate.type=='underslung'?true:false;
-      },
-      isSupported:function(){
-        return this.$store.state.calculate.type=='supported'?true:false;
-      }
+      // isUnderslung:function(){
+      //   return this.$store.state.calculate.type=='underslung'?true:false;
+      // },
+      // isSupported:function(){
+      //   return this.$store.state.calculate.type=='supported'?true:false;
+      // }
     },
     methods: {
         onInput:function(valueObj){

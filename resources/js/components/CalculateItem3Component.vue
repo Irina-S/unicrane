@@ -39,6 +39,7 @@
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
           this.$store.dispatch('select_lcapacity', valueObj);
+          this.$store.dispatch('select_consolelength', {value:null,valueName:null});
         }
     }
   }

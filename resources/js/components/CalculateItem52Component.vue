@@ -1,7 +1,7 @@
 <template>
     <div class="choose-crane-type__wrap">
         <div class="choose-crane-type__step">
-            Шаг 6 из 7
+            Шаг 5 из 7
         </div>
         <h2 class="choose-crane-type__header">5. Температурный режим</h2>
         <div class="choose-crane-type__grid three">

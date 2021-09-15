@@ -1,18 +1,33 @@
 <template>
-    <div class="field-group" v-bind:class="className">
+    <div class="field-group" v-bind:class="{className, [hideClass]:isHidden}">
         <label class="field-group__label">{{title}}</label>
         <div class="field-group__field">
-            <input type="number" name="inputName">
+            <input type="number" name="inputName" v-model="inputVal">
             <span>мм</span>
         </div>
     </div>
 </template>
 
 <script>
+  import {inputMixin} from './mixins.js'
 
   export default {
     name: "NumberInput",
-    props:['title', 'inputName', 'className'],
+    mixins:[inputMixin],
+    data(){
+      return {
+        hideClass:'field-group--hidden'
+      }
+    },
+    props:{
+      title:String, 
+      inputName:String, 
+      className:String,
+      isHidden:{
+        type:Boolean,
+        default:false
+      }
+    },
     methods: {
 
     },
@@ -24,6 +39,10 @@
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
+
+    &--hidden{
+      visibility:hidden;
+    }
 
     &__label{
       text-align:left;

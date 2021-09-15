@@ -3,44 +3,82 @@
         <div class="choose-crane-type__step">
             Шаг 7 из 7
         </div>
-        <h2 class="choose-crane-type__header">5. Размещение</h2>
+        <h2 class="choose-crane-type__header">7. Размещение</h2>
         <div class="choose-crane-type__sizes">
-            <NumberInput title="Высота путей" 
+            <NumberInput v-bind:title="isSupported?'Высота путей':'Высота до путей'" 
                         inputName="height"
-                        className="choose-crane-type__height">
+                        className="choose-crane-type__height"
+                        @input="onHeightInput($event)">
             </NumberInput>            
             <img src="assets/img/placement.png" class="choose-crane-type__img">
             <NumberInput title="Длина консолей крана" 
                         inputName="consolelength"
-                        classNameclass="choose-crane-type__consolelength">
+                        className="choose-crane-type__consolelength"
+                        v-bind:isHidden="isSupported"
+                        @input="onConsoleLengthInput($event)">
             </NumberInput>
             <NumberInput title="Ширина путей" 
                         inputName="width"
-                        classNameclass="choose-crane-type__width">
+                        className="choose-crane-type__width"
+                        @input="onWidthInput($event)">
             </NumberInput>
             <NumberInput title="Длина путей" 
                         inputName="length"
-                        className="choose-crane-type__length">
+                        className="choose-crane-type__length"
+                        @input="onLengthInput($event)">
             </NumberInput>
         </div>
-    <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
+    <ButtonNext v-bind:isDisabled="isNextBtnDisabled" v-bind:onClickFunc="showResult"></ButtonNext>
     </div>
 </template>
 
 <script>
-  import {stepMixin} from './mixins.js'
+  import {stepMixin,storeMixin} from './mixins.js'
   import NumberInput from "./NumberInput"
   import ButtonNext from "./ButtonNext"
 
   export default {
     name: "CalculateItem7Component",
     components:{NumberInput,ButtonNext},
-    mixins:[stepMixin],
+    mixins:[stepMixin,storeMixin],
+    data(){
+        return {
+            stepValue:{}
+        }
+    },
+    computed:{
+        isFinishButtonDisabled(){
+            
+        }
+    },
     methods: {
-        // onInput:function(valueObj){
-        //   this.stepValue = valueObj.value;
-        //   this.$store.dispatch('select_placement', valueObj);
-        // }
+        onHeightInput(valueObj){
+          this.stepValue.height = valueObj.value;
+          this.$store.dispatch('select_height', valueObj);
+          this.validateParams();
+          console.log('input')
+        },
+        onConsoleLengthInput(valueObj){
+          this.stepValue.consolelength = valueObj.value;
+          this.$store.dispatch('select_consolelength', valueObj);
+          this.validateParams();
+        },
+        onWidthInput(valueObj){
+          this.stepValue.width = valueObj.value;
+          this.$store.dispatch('select_width', valueObj);
+          this.validateParams();
+        },
+        onLengthInput(valueObj){
+          this.stepValue.length = valueObj.value;
+          this.$store.dispatch('select_length', valueObj);
+          this.validateParams();            
+        },
+        showResult(){
+            this.$store.dispatch('select_status', 'res');
+        },
+        validateParams(){
+            console.dir(this.stepValue)
+        }
     },
   }
 </script>

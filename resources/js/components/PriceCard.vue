@@ -12,16 +12,24 @@
 </template>
 
 <script>
-    import {cardMixin} from './mixins.js'
+    import {cardMixin,inputMixin} from './mixins.js'
 
     export default {
         name: "PriceCard",
-        props:['inputName', 'value', 'imgSrc', 'title', 'priceFrom', 'curVal', 'isUnderslung'],
-        mixins:[cardMixin],
-        computed:{
-            isHidden:function(){
-                return isUnderslung===undefined?false:!isUnderslung;
+        props:{
+            inputName:String, 
+            value:String, 
+            imgSrc:String, 
+            title:String, 
+            priceFrom:String, 
+            curVal:String,
+            isHidden:{
+                type:Boolean,
+                default:false
             }
+        },
+        mixins:[cardMixin,inputMixin],
+        computed:{
         }
   }
 </script>

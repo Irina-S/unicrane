@@ -10,12 +10,12 @@
 </template>
 
 <script>
-    import {cardMixin} from './mixins.js'
+    import {cardMixin,inputMixin} from './mixins.js'
 
     export default {
         name: "WeightCard",
         props:['inputName', 'value', 'title', 'priceFrom', 'curVal'],
-        mixins:[cardMixin],
+        mixins:[cardMixin,inputMixin],
   }
 </script>
 

@@ -1,17 +1,34 @@
 <template>
-    <button v-bind:disabled="isDisabled" @click="nextStep" class="choose-crane-type__button button"><span class="button__text">Следующий шаг</span></button>
+    <button v-bind:disabled="isDisabled" @click="onClick" class="choose-crane-type__button button"><span class="button__text">Следующий шаг</span></button>
 </template>
 
 <script>
     export default {
         name: "ButtonNext",
-        props:['isDisabled', 'nextSlide'],
+        props:{
+            isDisabled:{
+                type:Boolean,
+            }, 
+            nextSlide:{
+                type:Number
+            },
+            onClickFunc:{
+                default:null
+            }
+        },
         data:function(){
             return {
                 
             }
         },
         methods: {
+            onClick(){
+                if (this.onClickFunc)
+                    this.onClickFunc()
+                else
+                    this.nextStep()
+            },
+
             nextStep() {
                 console.log('c;lick');
                 console.log(this.nextSlide);
