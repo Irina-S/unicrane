@@ -1,11 +1,15 @@
 <template>
-    <button v-bind:disabled="isDisabled" @click="onClick" class="choose-crane-type__button button"><span class="button__text">Следующий шаг</span></button>
+    <button v-bind:disabled="isDisabled" @click="onClick" class="choose-crane-type__button button"><span class="button__text">{{title}}</span></button>
 </template>
 
 <script>
     export default {
         name: "ButtonNext",
         props:{
+            title:{
+                type:String,
+                default:'Следующий шаг'
+            },
             isDisabled:{
                 type:Boolean,
             }, 

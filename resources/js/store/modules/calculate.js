@@ -1,3 +1,6 @@
+import { calcBasePrice, mmToMeters } from './../functions.js'
+import { manual, electric } from './../../price.js'
+
 export default {
     state: {
         status: 'calc',
@@ -12,8 +15,10 @@ export default {
         placementName: null,
         tmode: null,
         tmodeName: null,
-        haswayorrail: null,
-        haswayorrailName: null,
+        hasway: null,
+        haswayName: null,
+        hasrail: null,
+        hasrailName: null,
         height: null,
         heightName: null,
         consoleLenght: null,
@@ -21,7 +26,8 @@ export default {
         width: null,
         widthName: null,
         length: null,
-        lengthName: null
+        lengthName: null,
+        basePrice: null
     },
 
     mutations: {
@@ -51,9 +57,13 @@ export default {
             state.tmode = payload.value;
             state.tmodeName = payload.valueName;
         },
-        set_haswayorrail: (state, payload) => {
-            state.haswayorrail = payload.value;
-            state.haswayorrailName = payload.valueName;
+        set_hasway: (state, payload) => {
+            state.hasway = payload.value;
+            state.haswayName = payload.valueName;
+        },
+        set_hasrail: (state, payload) => {
+            state.hasrail = payload.value;
+            state.hasrailName = payload.valueName;
         },
         set_height: (state, payload) => {
             state.height = payload.value;
@@ -66,6 +76,10 @@ export default {
         set_width: (state, payload) => {
             state.width = payload.value;
             state.widthName = payload.valueName;
+            // Дополнительно вычисляем базовую стоимость крана
+            curPrice = state.type == 'manual' ? manual : electric;
+            state.basePrice = calcBasePrice(curPrice, state.type, state.lcapacity, state.width)
+
         },
         set_length: (state, payload) => {
             state.length = payload.value;
@@ -95,8 +109,11 @@ export default {
         select_tmode: ({ commit }, credentials) => {
             commit('set_tmode', credentials);
         },
-        select_haswayorrail: ({ commit }, credentials) => {
-            commit('set_haswayorrail', credentials);
+        select_hasway: ({ commit }, credentials) => {
+            commit('set_hasway', credentials);
+        },
+        select_hasrail: ({ commit }, credentials) => {
+            commit('set_hasrail', credentials);
         },
         select_height: ({ commit }, credentials) => {
             commit('set_height', credentials);

@@ -1,22 +1,22 @@
 <template>
     <div class="choose-crane-type__wrap">
         <div class="choose-crane-type__step">
-            Шаг 7 из 7
+            Шаг 6 из 7
         </div>
-        <h2 class="choose-crane-type__header">7. Крановые пути</h2>
+        <h2 class="choose-crane-type__header">6. Крановый рельс</h2>
         <div class="choose-crane-type__grid two">
-            <PriceCard inputName="hasway" 
-                       value="yes" 
-                       imgSrc="assets/img/price-card-image-14.svg"
-                       title="У нас уже есть крановый путь"
+            <PriceCard inputName="hasrail" 
+                       value="hasrail" 
+                       imgSrc="assets/img/price-card-image-16.svg"
+                       title="У нас уже есть крановый рельс"
                        priceFrom="89 880"
                        @input="onInput($event)"
                        v-bind:curVal="stepValue">
             </PriceCard>
-            <PriceCard inputName="hasway" 
-                       value="no" 
-                       imgSrc="assets/img/price-card-image-15.svg"
-                       title="Необходима поставка и монтаж кранового пути"
+            <PriceCard inputName="hasrail" 
+                       value="norail" 
+                       imgSrc="assets/img/price-card-image-17.svg"
+                       title="Необходима поставка и монтаж кранового рельса"
                        priceFrom="67 880"
                        @input="onInput($event)"
                        v-bind:curVal="stepValue">
@@ -39,7 +39,7 @@
     methods: {
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
-          this.$store.dispatch('select_hasway', valueObj);
+          this.$store.dispatch('select_hasrail', valueObj);
         }
     },
   }

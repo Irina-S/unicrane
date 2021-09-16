@@ -4,8 +4,8 @@
             Шаг 6 из 7
         </div>
         <h2 class="choose-crane-type__header">6. Крановые пути</h2>
-        <div class="choose-crane-type__grid" v-bind:class="{four:isSupported, two:isUnderslung}">
-            <PriceCard inputName="haswayorrail" 
+        <div class="choose-crane-type__grid two">
+            <PriceCard inputName="hasway" 
                        value="hasway" 
                        imgSrc="assets/img/price-card-image-14.svg"
                        title="У нас уже есть крановый путь"
@@ -13,7 +13,7 @@
                        @input="onInput($event)"
                        v-bind:curVal="stepValue">
             </PriceCard>
-            <PriceCard inputName="haswayorrail" 
+            <PriceCard inputName="hasway" 
                        value="noway" 
                        imgSrc="assets/img/price-card-image-15.svg"
                        title="Необходима поставка и монтаж кранового пути"
@@ -21,27 +21,8 @@
                        @input="onInput($event)"
                        v-bind:curVal="stepValue">
             </PriceCard>
-            <PriceCard inputName="haswayorrail" 
-                       value="hasrail" 
-                       imgSrc="assets/img/price-card-image-16.svg"
-                       title="У нас уже есть крановый рельс"
-                       priceFrom="89 880"
-                       @input="onInput($event)"
-                       v-bind:curVal="stepValue"
-                       v-bind:isHidden="isUnderslung">
-            </PriceCard>
-            <PriceCard inputName="haswayorrail" 
-                       value="norail" 
-                       imgSrc="assets/img/price-card-image-17.svg"
-                       title="Необходима поставка и монтаж кранового рельса"
-                       priceFrom="67 880"
-                       @input="onInput($event)"
-                       v-bind:curVal="stepValue"
-                       v-bind:isHidden="isUnderslung">
-            </PriceCard>
-
         </div>
-        <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
+        <ButtonNext v-bind:isDisabled="isNextBtnDisabled" v-bind:nextSlide="nextSlideIndex"></ButtonNext>
     </div>
 </template>
 
@@ -55,6 +36,9 @@
     components:{PriceCard, ButtonNext},
     mixins:[stepMixin, storeMixin],
     computed:{
+      nextSlideIndex:function(){
+        return this.$store.state.calculate.type=='supported'?null:8;
+      }
       // isUnderslung:function(){
       //   return this.$store.state.calculate.type=='underslung'?true:false;
       // },
@@ -65,7 +49,7 @@
     methods: {
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
-          this.$store.dispatch('select_haswayorrail', valueObj);
+          this.$store.dispatch('select_hasway', valueObj);
         }
     },
   }

@@ -28,7 +28,11 @@
                         @input="onLengthInput($event)">
             </NumberInput>
         </div>
-    <ButtonNext v-bind:isDisabled="isNextBtnDisabled" v-bind:onClickFunc="showResult"></ButtonNext>
+    <ButtonNext 
+        title="Завершить расчет"
+        v-bind:isDisabled="isFinishButtonDisabled" 
+        v-bind:onClickFunc="showResult"
+    ></ButtonNext>
     </div>
 </template>
 
@@ -43,13 +47,19 @@
     mixins:[stepMixin,storeMixin],
     data(){
         return {
-            stepValue:{}
+            stepValue:{},
+            isFinishButtonDisabled:true
         }
     },
     computed:{
-        isFinishButtonDisabled(){
-            
-        }
+        // isFinishButtonDisabled(){
+        //     let isValid = true;
+        //     if (this.stepValue.height.length<3 || this.stepValue.width.length<3 || this.stepValue.length.length<3)
+        //         isValid = false;
+        //     if (this.$store.state.calculate.type=='underslung' && this.stepValue.consolelength.lenght<3)
+        //         isValid = false;
+        //     return !isValid;
+        // }
     },
     methods: {
         onHeightInput(valueObj){
@@ -77,7 +87,12 @@
             this.$store.dispatch('select_status', 'res');
         },
         validateParams(){
-            console.dir(this.stepValue)
+            let isValid = true;
+            if (this.stepValue.height.length<3 || this.stepValue.width.length<3 || this.stepValue.length.length<3)
+                isValid = false;
+            if (this.$store.state.calculate.type=='underslung' && this.stepValue.consolelength.lenght<3)
+                isValid = false;
+            this.isFinishButtonDisabled = !isValid;
         }
     },
   }

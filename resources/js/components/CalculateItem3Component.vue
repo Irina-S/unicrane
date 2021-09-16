@@ -25,6 +25,8 @@
   import WeightCard from "./WeightCard"
   // заментися на запрос к серверу
   import {electric,manual} from './../price.js'
+
+  //console.log(electric)
   
   export default {
     name: "CalculateItem3Component",
@@ -32,6 +34,20 @@
     mixins:[stepMixin],
     computed:{
       cards:function(){
+        // let cards = this.$store.state.calculate.handle=='electric'?electric[this.$store.state.calculate.type]:manual[this.$store.state.calculate.type];
+        // console.log(cards);
+        // if (cards){
+        //   cards.sort(function(a,b){
+        //     if (parseInt(a)>parseInt(b)) return 1;
+        //     if (parseInt(a)==parseInt(b)) return 0;
+        //     if (parseInt(a)<parseInt(b)) return -1;
+        //   });
+        //   return cards;          
+        // }
+        // else{
+        //   return null;
+        // }
+
         return this.$store.state.calculate.handle=='electric'?electric[this.$store.state.calculate.type]:manual[this.$store.state.calculate.type];
       }
     },
