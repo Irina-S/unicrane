@@ -8,22 +8,47 @@
  */
 export function calcBasePrice(priceList, craneType, lCapacity, craneSpan) {
     const spanList = priceList[craneType][lCapacity];
-    const spanKeysArray = Obkect.keys(spanList);
-    //  Если пролет меньше минмального из прайс листа
+    const spanKeysArray = Object.keys(spanList);
 
-    //  Если пролетбольше максимального из прайслиста
+    console.log(spanList);
+    console.log(spanKeysArray);
+
+    const minSpan = Math.min(...spanKeysArray);
+    const maxSpan = Math.max(...spanKeysArray);
+
+    console.log(`пролет ${craneSpan}`);
+    console.log(`минимальнй пролет ${minSpan}`);
+
+
+    //  Если пролет меньше минмального из прайс листа
+    if (craneSpan < minSpan) {
+        console.log('меньше');
+        return spanList[minSpan];
+    }
+    // Если пролет больше максимального из прайслиста
+    if (craneSpan > maxSpan) {
+        console.log('больше');
+        return false;
+    }
+    // Если пролет равен значению пролетов в прайсе
+    console.log(spanList[craneSpan]);
+    console.log(spanKeysArray);
+    console.log(spanKeysArray.includes(craneSpan));
+    if (spanKeysArray.includes(craneSpan.toString())) {
+        console.log('есть в прайсе');
+        console.log(`${spanList[craneSpan]}`);
+        return spanList[craneSpan];
+    }
+    //Иначе рассчитваем разницу
     let from, to, price;
     //Если попадает в прайс лист
     spanKeysArray.forEach((val, index) => {
-        if (craneSpan == val) {
-            price = spanList[val];
-        } else {
-            //последний индекс!!!
-            nextVal = spanKeysArray[index + 1];
-            if (val < craneSpan && craneSpan < nextVal) {
-                from = val;
-                to = nextVal;
-            }
+        //последний индекс!!!
+        let nextVal = spanKeysArray[index + 1];
+        if (val < craneSpan && craneSpan < nextVal) {
+            from = val;
+            to = nextVal;
+            console.log(`между ${from} - ${to}`);
         }
     });
 
@@ -38,7 +63,11 @@ export function calcBasePrice(priceList, craneType, lCapacity, craneSpan) {
 
     const cranePriceDiff = craneSpanDiff * pricePerMeter;
 
-    price = spanList[from] + cranePriceDiff;
+    console.log(`разница с мин пролетом ${spanDiff}`);
+    console.log(`разница цены между пролетами ${priceDiff}`);
+    console.log(`цена за метр ${pricePerMeter}`);
+
+    price = spanList[from] + Math.round(cranePriceDiff);
 
     return price;
 

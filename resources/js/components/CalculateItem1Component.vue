@@ -27,9 +27,12 @@
 </template>
 
 <script>
+  import {manual,electric} from './../price.js'
   import {stepMixin} from './mixins.js'
   import ButtonNext from "./ButtonNext"
   import PriceCard from "./PriceCard"
+
+  console.log(manual,electric);
 
   export default {
     name: "CalculateItem1Component",
@@ -39,8 +42,16 @@
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
           this.$store.dispatch('select_handle', valueObj);
+          if (this.stepValue=='manual'){
+            this.$store.dispatch('select_pricelist', manual)
+          }
+            
+          else if (this.stepValue=='electric'){
+            this.$store.dispatch('select_pricelist', electric)
+          }
+            
         }
-    },
+      }
   }
 </script>
 

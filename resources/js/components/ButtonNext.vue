@@ -34,8 +34,6 @@
             },
 
             nextStep() {
-                console.log('c;lick');
-                console.log(this.nextSlide);
                 if (this.nextSlide)
                     this.$root.$refs.calculate.$refs.calculate_slider.goTo(this.nextSlide)
                 else

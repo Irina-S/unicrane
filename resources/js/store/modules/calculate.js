@@ -1,9 +1,9 @@
 import { calcBasePrice, mmToMeters } from './../functions.js'
-import { manual, electric } from './../../price.js'
 
 export default {
     state: {
         status: 'calc',
+        pricelist: null,
         handle: null,
         handleName: null,
         type: null,
@@ -37,6 +37,9 @@ export default {
         set_handle: (state, payload) => {
             state.handle = payload.value;
             state.handleName = payload.valueName;
+        },
+        set_pricelist: (state, payload) => {
+            state.pricelist = payload;
         },
         set_type: (state, payload) => {
             state.type = payload.value;
@@ -77,8 +80,8 @@ export default {
             state.width = payload.value;
             state.widthName = payload.valueName;
             // Дополнительно вычисляем базовую стоимость крана
-            curPrice = state.type == 'manual' ? manual : electric;
-            state.basePrice = calcBasePrice(curPrice, state.type, state.lcapacity, state.width)
+            console.log(`В метрах ${mmToMeters(state.width)}`)
+            state.basePrice = calcBasePrice(state.pricelist, state.type, state.lcapacity, mmToMeters(state.width))
 
         },
         set_length: (state, payload) => {
@@ -93,6 +96,9 @@ export default {
         },
         select_handle: ({ commit }, credentials) => {
             commit('set_handle', credentials);
+        },
+        select_pricelist: ({ commit }, credentials) => {
+            commit('set_pricelist', credentials);
         },
         select_type: ({ commit }, credentials) => {
             commit('set_type', credentials);

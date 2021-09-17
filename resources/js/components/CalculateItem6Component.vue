@@ -37,7 +37,7 @@
     mixins:[stepMixin, storeMixin],
     computed:{
       nextSlideIndex:function(){
-        return this.$store.state.calculate.type=='supported'?null:8;
+        return this.$store.state.calculate.type=='underslung'?8:(this.stepValue=='noway'?8:null);
       }
       // isUnderslung:function(){
       //   return this.$store.state.calculate.type=='underslung'?true:false;

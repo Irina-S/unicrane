@@ -41,7 +41,8 @@
         newProductsSliderSettings: {
           arrows: false,
           touchMove: false,
-          infinite:false
+          infinite:false,
+          adaptiveHeight:true
         },
       }
     },

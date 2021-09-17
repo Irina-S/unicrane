@@ -28,6 +28,7 @@
                         @input="onLengthInput($event)">
             </NumberInput>
         </div>
+        <div class="warning" v-bind:style="warnStyleObj"><img src="assets/img/warning.svg">    Для выбранной ширины стоимость рассчитывается индивидуально</div>
     <ButtonNext 
         title="Завершить расчет"
         v-bind:isDisabled="isFinishButtonDisabled" 
@@ -48,7 +49,8 @@
     data(){
         return {
             stepValue:{},
-            isFinishButtonDisabled:true
+            isFinishButtonDisabled:true,
+            warnStyleObj:{display:'none'}
         }
     },
     computed:{
@@ -77,6 +79,11 @@
           this.stepValue.width = valueObj.value;
           this.$store.dispatch('select_width', valueObj);
           this.validateParams();
+          if (this.$store.state.calculate.basePrice===false)
+            this.warnStyleObj.display = "flex"
+          else
+            this.warnStyleObj.display ="none";
+
         },
         onLengthInput(valueObj){
           this.stepValue.length = valueObj.value;
@@ -88,9 +95,10 @@
         },
         validateParams(){
             let isValid = true;
-            if (this.stepValue.height.length<3 || this.stepValue.width.length<3 || this.stepValue.length.length<3)
+            console.log(this.stepValue);
+            if (!this.stepValue.height || !this.stepValue.width || !this.stepValue.length || (this.stepValue.height.length<3 || this.stepValue.width.length<3 || this.stepValue.length.length<3))
                 isValid = false;
-            if (this.$store.state.calculate.type=='underslung' && this.stepValue.consolelength.lenght<3)
+            if (this.$store.state.calculate.type=='underslung' && (!this.stepValue.consolelength || this.stepValue.consolelength.length<3))
                 isValid = false;
             this.isFinishButtonDisabled = !isValid;
         }
@@ -127,6 +135,26 @@
 
         &__length{
             grid-area:size-length
+        }
+    }
+
+    .warning{
+        margin-top: 20px;
+        padding: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 1.9;
+        color: #051223;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
+
+        img{
+            margin-right: 10px;
         }
     }
 </style>
