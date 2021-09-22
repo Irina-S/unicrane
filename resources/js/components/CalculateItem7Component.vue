@@ -118,7 +118,8 @@
         }
 
         &__img{
-            grid-area:size-img
+            grid-area:size-img;
+            max-width: 100%;
         }
 
         &__height{
@@ -156,5 +157,27 @@
         img{
             margin-right: 10px;
         }
+    }
+
+    @media (max-width:991px){
+        .choose-crane-type{
+            &__sizes{
+                grid-template-columns: 180px 1fr 1fr;
+            }
+        }
+    }
+
+    @media (max-width:500px){
+        .choose-crane-type{
+            &__sizes{
+                gap: 15px;
+                grid-template-columns: 1fr;
+                grid-template-areas: "size-img"
+                                     "size-height"
+                                     "size-width"
+                                     "size-length"
+                                     "size-consolelength";
+            }
+        }        
     }
 </style>

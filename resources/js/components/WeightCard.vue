@@ -14,7 +14,24 @@
 
     export default {
         name: "WeightCard",
-        props:['inputName', 'value', 'title', 'priceFrom', 'curVal'],
+        // props:['inputName', 'value', 'title', 'priceFrom', 'curVal'],
+        props:{
+            inputName:{
+                type:String
+            },
+            value:{
+                type:Number
+            },
+            title:{
+                type:Number
+            },
+            priceFrom:{
+                type:String
+            },
+            curVal:{
+                type:String
+            }
+        },
         mixins:[cardMixin,inputMixin],
   }
 </script>

@@ -8,8 +8,8 @@
             <WeightCard v-for="(value,key) in cards" 
                        v-bind:key="key"
                        inputName="lcapacity" 
-                       v-bind:value="key" 
-                       v-bind:title="key"
+                       v-bind:value="parseFloat(key)" 
+                       v-bind:title="parseFloat(key)"
                        priceFrom="89 880"
                        @input="onInput($event)"
                        v-bind:curVal="stepValue">
@@ -34,21 +34,17 @@
     mixins:[stepMixin],
     computed:{
       cards:function(){
-        // let cards = this.$store.state.calculate.handle=='electric'?electric[this.$store.state.calculate.type]:manual[this.$store.state.calculate.type];
-        // console.log(cards);
-        // if (cards){
-        //   cards.sort(function(a,b){
-        //     if (parseInt(a)>parseInt(b)) return 1;
-        //     if (parseInt(a)==parseInt(b)) return 0;
-        //     if (parseInt(a)<parseInt(b)) return -1;
-        //   });
-        //   return cards;          
-        // }
-        // else{
-        //   return null;
-        // }
-
         return this.$store.state.calculate.handle=='electric'?electric[this.$store.state.calculate.type]:manual[this.$store.state.calculate.type];
+      },
+      sortedCards:function(){
+        // const cardKeys = Object.keys(this.cards);
+        // let sorted = {};
+        // cardKeys.sort((a,b)=>parseFloat(a)-parseFloat(b))
+        // cardKeys.map((item,index)=>{
+        //   sorted[item] = this.cards[item];
+        // });
+        // return sorted;
+        // return new Map(this.cards);
       }
     },
     methods:{

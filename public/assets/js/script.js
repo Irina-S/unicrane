@@ -242,10 +242,11 @@ $(document).ready(function() {
 
     //ТЕМНЫЙ ФОН ДЛЯ ШАПКИ НА ГЛАВНОЙ ПРИ ПРОКРУТКЕ
     $(window).scroll(function() {
-        if ($(window).scrollTop() > $('body:not(.regular-page) .header').height())
+        if ($(window).scrollTop() > $('.header').height())
             $('.header').addClass('header--bg')
         else
             $('.header').removeClass('header--bg');
+
 
     });
 

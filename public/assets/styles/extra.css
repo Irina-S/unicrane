@@ -10,3 +10,18 @@
 .advantages-item__title {
     white-space: normal;
 }
+
+.regular-page .header {
+    background: transparent;
+}
+
+.regular-page .header.header--bg {
+    background: transparent;
+    background: #fff;
+}
+
+.calc-page {
+    background: url(../img/backgrounds/rp-bg.jpg) center no-repeat;
+    background-position: top;
+    background-size: 100% auto;
+}

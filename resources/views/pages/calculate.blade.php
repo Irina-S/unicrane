@@ -12,7 +12,7 @@
         </nav>
     </div>
 
-    <img class="page-description__background" src="./assets/img/backgrounds/about-factory.png" alt="">
+    <img class="page-description__background" src="./assets/img/backgrounds/calc-bg.jpg" alt="">
 
     <div style="position:relative">
 

@@ -11,6 +11,7 @@ export default {
         lcapacity: null,
         prod: null,
         prodName: null,
+        prodPrice: null,
         placement: null,
         placementName: null,
         tmode: null,
@@ -37,6 +38,7 @@ export default {
         set_handle: (state, payload) => {
             state.handle = payload.value;
             state.handleName = payload.valueName;
+            //сброс размещения
         },
         set_pricelist: (state, payload) => {
             state.pricelist = payload;
@@ -51,6 +53,8 @@ export default {
         set_prod: (state, payload) => {
             state.prod = payload.value;
             state.prodName = payload.valueName;
+            // вычисление стоимости исполнения
+            state.prodPrice = 0;
         },
         set_placement: (state, payload) => {
             state.placement = payload.value;

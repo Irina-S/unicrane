@@ -16,7 +16,7 @@
 .choose-crane-type__header {
     color: #202020;
     font-size: 48px;
-    line-height: 70px;
+    line-height: 1.2;
     font-weight: 700;
     font-family: "Bebas Neue";
     margin-bottom: 20px
@@ -29,7 +29,8 @@
 
 .choose-crane-type__grid.two {
     grid-template-columns: 1fr 1fr;
-    width: 66%;
+    width: 100%;
+    // width: 66%;
     margin: 0 auto
 }
 
@@ -173,4 +174,20 @@
 
 .choose-crane-type__item-hide {
     display: none;
+}
+
+@media (max-width:1230px) {
+    .choose-crane-type__weight-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .choose-crane-type__grid.two,
+    .choose-crane-type__grid.three {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:500px) {
+    .choose-crane-type__weight-grid {
+        grid-template-columns: 1fr;
+    }
 }
