@@ -31,7 +31,7 @@
         },
         computed:{
             formatedPrice(){
-                return this.price?this.numberFormat(this.price, 0, '', ' ')+' &#8381;':'Без доплаты';
+                return this.price?this.numberFormat(this.price, 0, '', ' ')+' ₽':'Без доплаты';
             }
         },
         methods: {

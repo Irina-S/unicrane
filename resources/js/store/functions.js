@@ -10,14 +10,14 @@ export function calcBasePrice(priceList, craneType, lCapacity, craneSpan) {
     const spanList = priceList[craneType][lCapacity];
     const spanKeysArray = Object.keys(spanList);
 
-    console.log(spanList);
-    console.log(spanKeysArray);
+    // console.log(spanList);
+    // console.log(spanKeysArray);
 
     const minSpan = Math.min(...spanKeysArray);
     const maxSpan = Math.max(...spanKeysArray);
 
-    console.log(`пролет ${craneSpan}`);
-    console.log(`минимальнй пролет ${minSpan}`);
+    // console.log(`пролет ${craneSpan}`);
+    // console.log(`минимальнй пролет ${minSpan}`);
 
 
     //  Если пролет меньше минмального из прайс листа
@@ -31,12 +31,12 @@ export function calcBasePrice(priceList, craneType, lCapacity, craneSpan) {
         return false;
     }
     // Если пролет равен значению пролетов в прайсе
-    console.log(spanList[craneSpan]);
-    console.log(spanKeysArray);
-    console.log(spanKeysArray.includes(craneSpan));
+    // console.log(spanList[craneSpan]);
+    // console.log(spanKeysArray);
+    // console.log(spanKeysArray.includes(craneSpan));
     if (spanKeysArray.includes(craneSpan.toString())) {
-        console.log('есть в прайсе');
-        console.log(`${spanList[craneSpan]}`);
+        // console.log('есть в прайсе');
+        // console.log(`${spanList[craneSpan]}`);
         return spanList[craneSpan];
     }
     //Иначе рассчитваем разницу
@@ -48,7 +48,7 @@ export function calcBasePrice(priceList, craneType, lCapacity, craneSpan) {
         if (val < craneSpan && craneSpan < nextVal) {
             from = val;
             to = nextVal;
-            console.log(`между ${from} - ${to}`);
+            // console.log(`между ${from} - ${to}`);
         }
     });
 
@@ -63,9 +63,9 @@ export function calcBasePrice(priceList, craneType, lCapacity, craneSpan) {
 
     const cranePriceDiff = craneSpanDiff * pricePerMeter;
 
-    console.log(`разница с мин пролетом ${spanDiff}`);
-    console.log(`разница цены между пролетами ${priceDiff}`);
-    console.log(`цена за метр ${pricePerMeter}`);
+    // console.log(`разница с мин пролетом ${spanDiff}`);
+    // console.log(`разница цены между пролетами ${priceDiff}`);
+    // console.log(`цена за метр ${pricePerMeter}`);
 
     price = spanList[from] + Math.round(cranePriceDiff);
 

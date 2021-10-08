@@ -15,7 +15,7 @@
           </li>
           <li class="calc-list__item calc-item">
             <span class="calc-item__title">Стоимость доплаты:</span>
-            <strong class="calc-item__value">-</strong>
+            <strong class="calc-item__value" v-bind:class="{'red-text':supplement?true:false}">{{supplement?`${supplement} &#8381;`:'-'}}</strong>
           </li>
           <li class="calc-list__item calc-item">
             <span class="calc-item__title">Стоимость путей и токоподвода:</span>
@@ -27,7 +27,7 @@
           </li>
           <li class="calc-list__item calc-item">
             <span class="calc-item__title">Общая стоимость:</span>
-            <strong class="calc-item__value">-</strong>
+            <strong class="calc-item__value" v-bind:class="{'red-text':totalPrice?true:false}">{{totalPrice}}</strong>
           </li>          
         </ul>
         <button class="button calc-total__btn"><span class="button__text">Получить КП</span></button>
@@ -54,9 +54,11 @@
         <CraneOption v-if="isElectric" 
                      title="Размещение"
                      :value="placementName"
+                     :price="placementPrice"
          ></CraneOption>
          <CraneOption title="Температурный режим"
                      :value="tmodeName"
+                     :price="tmodePrice"
          ></CraneOption>
         <CraneOption v-if="needWay" 
                      title="Разработка проектной документации крановых путей"
@@ -73,7 +75,6 @@
 
 <script>
   import CraneOption from './CraneOption'
-
 
   export default {
     name: "CalculateResult",
@@ -111,9 +112,15 @@
       placementName:function(){
         return this.$store.state.calculate.placementName;
       },
+      placementPrice:function(){
+        return this.$store.state.calculate.placementPrice;
+      },      
       tmodeName:function(){
          return this.$store.state.calculate.tmodeName;
       },
+      tmodePrice:function(){
+         return this.$store.state.calculate.tmodePrice;
+      },      
       needWay:function(){
         return this.$store.state.calculate.hasway=='hasway'?false:true;
       },
@@ -129,6 +136,13 @@
       width:function(){
         return this.$store.state.calculate.width;
       },
+      supplement:function(){
+        console.log('sup', this.$store.state.calculate.supplement);
+        return this.$store.state.calculate.supplement;
+      },      
+      totalPrice:function(){
+        return this.$store.state.calculate.totalPrice;
+      }
     },
     methods: {
     }

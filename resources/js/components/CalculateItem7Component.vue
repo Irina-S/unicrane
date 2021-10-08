@@ -31,6 +31,7 @@
         <div class="warning" v-bind:style="warnStyleObj"><img src="assets/img/warning.svg">    Для выбранной ширины стоимость рассчитывается индивидуально</div>
     <ButtonNext 
         title="Завершить расчет"
+        isVisible
         v-bind:isDisabled="isFinishButtonDisabled" 
         v-bind:onClickFunc="showResult"
     ></ButtonNext>
@@ -68,7 +69,6 @@
           this.stepValue.height = valueObj.value;
           this.$store.dispatch('select_height', valueObj);
           this.validateParams();
-          console.log('input')
         },
         onConsoleLengthInput(valueObj){
           this.stepValue.consolelength = valueObj.value;
@@ -92,10 +92,10 @@
         },
         showResult(){
             this.$store.dispatch('select_status', 'res');
+            this.$store.dispatch('calc_result', '');
         },
         validateParams(){
             let isValid = true;
-            console.log(this.stepValue);
             if (!this.stepValue.height || !this.stepValue.width || !this.stepValue.length || (this.stepValue.height.length<3 || this.stepValue.width.length<3 || this.stepValue.length.length<3))
                 isValid = false;
             if (this.$store.state.calculate.type=='underslung' && (!this.stepValue.consolelength || this.stepValue.consolelength.length<3))

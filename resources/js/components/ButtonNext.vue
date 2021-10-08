@@ -1,5 +1,5 @@
 <template>
-    <button v-bind:disabled="isDisabled" @click="onClick" class="choose-crane-type__button button"><span class="button__text">{{title}}</span></button>
+    <button v-bind:disabled="isDisabled" @click="onClick" v-bind:class="['choose-crane-type__button', 'button', {[visibleClass]:isVisible}]"><span class="button__text">{{title}}</span></button>
 </template>
 
 <script>
@@ -12,7 +12,11 @@
             },
             isDisabled:{
                 type:Boolean,
-            }, 
+            },
+            isVisible:{
+                type:Boolean,
+                default:false
+            },
             nextSlide:{
                 type:Number
             },
@@ -22,7 +26,7 @@
         },
         data:function(){
             return {
-                
+                visibleClass:'choose-crane-type__button--visible'
             }
         },
         methods: {
@@ -46,12 +50,23 @@
 </script>
 
 <style lang="scss" scoped>
-    .choose-crane-type__button[disabled]{
-        opacity:0.7;
-        cursor:default;
 
-        &:hover{
-            background:#b5212e;
+
+    .choose-crane-type__button{
+        display: none;
+
+        &--visible{
+            display: inline-flex;
         }
+
+        &[disabled]{
+                opacity:0.7;
+                cursor:default;
+
+                &:hover{
+                    background:#b5212e;
+                }
+            }
+
     }
 </style>

@@ -15,7 +15,7 @@
                        v-bind:curVal="stepValue">
             </WeightCard>
           </div>
-          <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
+          <ButtonNext v-bind:isDisabled="isNextBtnDisabled" ref="buttonNext"></ButtonNext>
       </div>
 </template>
 
@@ -51,7 +51,9 @@
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
           this.$store.dispatch('select_lcapacity', valueObj);
-          this.$store.dispatch('select_consolelength', {value:null,valueName:null});
+          //this.$store.dispatch('select_consolelength', {value:null,valueName:null});
+
+          this.$refs.buttonNext.onClick(); 
         }
     }
   }

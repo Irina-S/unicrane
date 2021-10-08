@@ -14,8 +14,10 @@ export default {
         prodPrice: null,
         placement: null,
         placementName: null,
+        placementPrice: null,
         tmode: null,
         tmodeName: null,
+        tmodePrice: null,
         hasway: null,
         haswayName: null,
         hasrail: null,
@@ -28,7 +30,9 @@ export default {
         widthName: null,
         length: null,
         lengthName: null,
-        basePrice: null
+        basePrice: null,
+        supplement: null,
+        totalPrice: null
     },
 
     mutations: {
@@ -54,7 +58,7 @@ export default {
             state.prod = payload.value;
             state.prodName = payload.valueName;
             // вычисление стоимости исполнения
-            state.prodPrice = 0;
+            console.log(state.prod);
         },
         set_placement: (state, payload) => {
             state.placement = payload.value;
@@ -84,13 +88,41 @@ export default {
             state.width = payload.value;
             state.widthName = payload.valueName;
             // Дополнительно вычисляем базовую стоимость крана
-            console.log(`В метрах ${mmToMeters(state.width)}`)
             state.basePrice = calcBasePrice(state.pricelist, state.type, state.lcapacity, mmToMeters(state.width))
 
         },
         set_length: (state, payload) => {
             state.length = payload.value;
             state.lengthName = payload.valueName;
+        },
+        get_result: (state, payload) => {
+            // Стоимость исполнения
+            if (state.prod == 'fireproof') {
+                state.prodPrice = Math.round(state.basePrice * 0.1);
+            } else {
+                state.prodPrice = 0;
+            }
+
+            // Стоимость размешения
+            if (state.placement == 'outdoors' && state.prod != 'expproof') {
+                state.placementPrice = state.lcapacity <= 3.2 ? 8500 : (state.lcapacity <= 10 ? 16500 : 23000);
+            } else if (state.placement == 'outdoors' && state.prod == 'expproof') {
+                state.placementPrice = state.lcapacity <= 3.2 ? 8000 : (state.lcapacity <= 10 ? 17000 : 22000);
+            } else {
+                state.placementPrice = 0;
+            }
+
+            // Стоимость температурного режима
+            if (state.tmode == 'from40to40') {
+                state.tmodePrice = Math.round(state.basePrice * 0.1)
+            } else {
+                state.tmodePrice = 0;
+            }
+
+            state.supplement = state.prodPrice + state.placementPrice + state.tmodePrice;
+
+            //Общая стомость
+            state.totalPrice = state.basePrice + state.supplement;
         }
     },
 
@@ -136,6 +168,9 @@ export default {
         },
         select_length: ({ commit }, credentials) => {
             commit('set_length', credentials);
+        },
+        calc_result: ({ commit }, credentials) => {
+            commit('get_result', credentials);
         },
     }
 }

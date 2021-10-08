@@ -30,7 +30,7 @@
                        v-bind:curVal="stepValue">
             </PriceCard>
         </div>
-    <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
+    <ButtonNext v-bind:isDisabled="isNextBtnDisabled" ref="buttonNext"></ButtonNext>
     </div>
 </template>
 
@@ -47,6 +47,8 @@
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
           this.$store.dispatch('select_placement', valueObj);
+
+          this.$refs.buttonNext.onClick(); 
         }
     },
   }

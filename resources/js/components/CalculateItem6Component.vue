@@ -22,7 +22,11 @@
                        v-bind:curVal="stepValue">
             </PriceCard>
         </div>
-        <ButtonNext v-bind:isDisabled="isNextBtnDisabled" v-bind:nextSlide="nextSlideIndex"></ButtonNext>
+        <ButtonNext 
+        v-bind:isDisabled="isNextBtnDisabled" 
+        v-bind:nextSlide="nextSlideIndex"
+        ref="buttonNext"
+        ></ButtonNext>
     </div>
 </template>
 
@@ -50,6 +54,8 @@
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
           this.$store.dispatch('select_hasway', valueObj);
+
+          this.$refs.buttonNext.onClick(); 
         }
     },
   }

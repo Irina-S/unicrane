@@ -22,7 +22,7 @@
                        v-bind:curVal="stepValue">
             </PriceCard>
         </div>
-        <ButtonNext v-bind:isDisabled="isNextBtnDisabled"></ButtonNext>
+        <ButtonNext v-bind:isDisabled="isNextBtnDisabled" ref="buttonNext"></ButtonNext>
     </div>
 </template>
 
@@ -40,16 +40,17 @@
     mixins:[stepMixin],
     methods: {
         onInput:function(valueObj){
+          console.log(this.$refs.buttonNext);
           this.stepValue = valueObj.value;
           this.$store.dispatch('select_handle', valueObj);
           if (this.stepValue=='manual'){
             this.$store.dispatch('select_pricelist', manual)
           }
-            
           else if (this.stepValue=='electric'){
             this.$store.dispatch('select_pricelist', electric)
           }
-            
+
+          this.$refs.buttonNext.onClick();   
         }
       }
   }

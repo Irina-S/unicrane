@@ -30,12 +30,17 @@
                        v-bind:curVal="stepValue">
             </PriceCard>
         </div>
-    <ButtonNext v-bind:isDisabled="isNextBtnDisabled" v-bind:nextSlide="nextSlideIndex"></ButtonNext>
+    <ButtonNext 
+      v-bind:isDisabled="isNextBtnDisabled" 
+      v-bind:nextSlide="nextSlideIndex"
+      ref="buttonNext"
+      ></ButtonNext>
     </div>
 </template>
 
 <script>
   import {stepMixin} from './mixins.js'
+  import {manualExpProof,electricExpProof} from './../price.js'
   import ButtonNext from "./ButtonNext"
   import PriceCard from "./PriceCard"
 
@@ -51,7 +56,19 @@
     methods: {
         onInput:function(valueObj){
           this.stepValue = valueObj.value;
+
+          if (this.stepValue=='expproof'){
+            if (this.$store.state.calculate.handle=='manual'){
+              this.$store.dispatch('select_pricelist', manualExpProof)
+            }
+            else if (this.$store.state.calculate.handle=='electric'){
+              this.$store.dispatch('select_pricelist', electricExpProof)
+            }
+          }
+          
           this.$store.dispatch('select_prod', valueObj);
+
+          this.$refs.buttonNext.onClick(); 
         }
     },
   }

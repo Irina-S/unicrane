@@ -47,6 +47,10 @@
   src: url("../fonts/noto-sans-light.woff");
 }
 
+.mg-bt-35 {
+  margin-bottom: 3.6vh;
+}
+
 a:hover {
   color: inherit;
 }
@@ -57,11 +61,10 @@ a:hover {
 
 .input-fields-footer .input-group {
   position: relative;
-  margin: 40px 0 20px;
+  margin: 4.1vh 0 2.1vh;
 }
 
 .input-fields-footer input {
-  font-size: 18px;
   padding: 26px 22px 12px;
   display: block;
   width: 100%;
@@ -204,7 +207,7 @@ html.stop-scroll {
 }
 
 .section {
-  /* padding-top: 120px; */
+  padding-top: 120px;
   min-height: 100vh;
   height: 100%;
   position: relative;
@@ -212,10 +215,6 @@ html.stop-scroll {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-}
-
-.section.fp-auto-height {
-  padding-top: 0;
 }
 
 .section--regular {
@@ -237,7 +236,8 @@ html.stop-scroll {
 
 .section__title {
   font-weight: 700;
-  font-size: 64px;
+  /* font-size: 64px; */
+  font-size: 6vh;
   line-height: 1.1;
   letter-spacing: 0.05em;
   margin: 0 auto;
@@ -783,15 +783,14 @@ html.stop-scroll {
   max-width: 475px;
   white-space: initial;
   position: relative;
-  padding-top: 210px;
+  padding-top: 22.4vh;
 }
 
 .tagline__title {
   position: relative;
-  left: -7px;
-  margin-bottom: 64px;
+  margin-bottom: 6.8vh;
   font-weight: 700;
-  font-size: 100px;
+  font-size: 10.7vh;
   line-height: 1;
   letter-spacing: 0.05em;
 }
@@ -985,7 +984,6 @@ html.stop-scroll {
           align-items: center;
   width: 100%;
   max-height: 200px;
-  min-height: 110px;
 }
 
 .list-item:not(:first-child) {
@@ -1016,12 +1014,12 @@ html.stop-scroll {
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 3.2vh;
   line-height: 1.25;
   letter-spacing: 0.05em;
   min-width: 390px;
   padding: 52px 0;
-  padding: 46px 102px 48px calc((100vw - 1460px) / 2);
+  padding: 4.7vh 102px 4.9vh calc((100vw - 1460px) / 2);
   max-height: 100%;
   height: 100%;
   text-align: start;
@@ -1076,8 +1074,8 @@ html.stop-scroll {
 
 .description-item__text {
   font-family: "Noto Sans";
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 2.1vh;
+  line-height: 1.5;
   white-space: initial;
   font-weight: 400;
   max-width: 630px;
@@ -1086,7 +1084,7 @@ html.stop-scroll {
 
 .description-item__title {
   font-weight: 700;
-  font-size: 64px;
+  font-size: 6.8vh;
   line-height: 1.1;
   letter-spacing: 0.05em;
   white-space: pre-line;
@@ -1094,7 +1092,7 @@ html.stop-scroll {
 
 .description-item__price {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 5.1vh;
   line-height: 1.46;
   letter-spacing: 0.05em;
   color: #b5212e;
@@ -1135,7 +1133,7 @@ html.stop-scroll {
 }
 
 .advantages {
-  margin-top: 81px;
+  margin-top: 8vh;
   width: 100%;
 }
 
@@ -1157,10 +1155,13 @@ html.stop-scroll {
 
 .advantages-box__wrap {
   text-align: initial;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
 }
 
 .advantages-item {
-  padding: 28px 30px;
+  padding: 3vh;
   border-collapse: collapse;
   width: calc(100% / 3);
   border-right: 1px rgba(255, 255, 255, 0.2) solid;
@@ -1168,9 +1169,9 @@ html.stop-scroll {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .advantages-item--regular {
@@ -1182,9 +1183,11 @@ html.stop-scroll {
 .advantages-item__logo {
   border: 1px red solid;
   border-radius: 41px;
-  height: 78px;
+  height: 8vh;
+  width: 8vh;
+  min-width: 8vh;
   padding: 18px;
-  margin-right: 31px;
+  margin-right: 3vh;
   max-width: 78px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1195,6 +1198,10 @@ html.stop-scroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.advantages-item__logo img {
+  width: 130%;
 }
 
 .advantages-item__title {
@@ -1210,14 +1217,14 @@ html.stop-scroll {
 .advantages-item__list {
   font-family: "Noto Sans";
   font-weight: 300;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 1.4vh;
+  line-height: 1.3;
   max-width: 300px;
   white-space: initial;
 }
 
 .advantages-item__list li {
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
 }
 
 .dual {
@@ -1233,7 +1240,7 @@ html.stop-scroll {
 }
 
 .dual-box__left {
-  padding: 85px 140px 0 0;
+  padding: 8.5vh 14vh 0 0;
   width: 50%;
 }
 
@@ -1242,7 +1249,7 @@ html.stop-scroll {
 }
 
 .dual-box__right {
-  padding: 82px 0 0 130px;
+  padding: 8.2vh 0 0 13vh;
   width: 50%;
 }
 
@@ -1322,7 +1329,7 @@ html.stop-scroll {
   width: 50%;
   min-width: 455px;
   white-space: normal;
-  padding-top: 169px;
+  padding-top: 17.5vh;
   padding-right: 185px;
 }
 
@@ -1335,10 +1342,10 @@ html.stop-scroll {
 .services-description__text {
   font-family: "Noto Sans";
   font-weight: 300;
-  font-size: 23px;
-  line-height: 35px;
-  margin-bottom: 94px;
-  margin-top: 37px;
+  font-size: 2.3vh;
+  line-height: 1.5;
+  margin-bottom: 9.6vh;
+  margin-top: 3.8vh;
   white-space: pre-line;
 }
 
@@ -1350,6 +1357,7 @@ html.stop-scroll {
 .services-list-wrap {
   position: absolute;
   width: 100%;
+  height: 100%;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -1367,23 +1375,38 @@ html.stop-scroll {
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: calc((100% - 120px) / 7);
-  max-height: 200px;
+  height: calc((100vh - 120px) / 7);
+  max-height: calc((100vh - 120px) / 7);
 }
 
 .services-list-item__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: 700;
-  font-size: 30px;
-  line-height: 41px;
-  padding: 43px 36px;
+  font-size: 3.2vh;
+  line-height: 1.3;
+  padding: 4vh 36px;
   letter-spacing: 1.5px;
 }
 
 .services-list-item__number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-weight: 700;
   font-size: 30px;
   line-height: 40px;
-  padding: 43px 36px;
+  padding: 4vh 36px;
   color: #b5212e;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -1408,7 +1431,7 @@ html.stop-scroll {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 39px;
+  margin-bottom: 3.9vh;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1419,7 +1442,7 @@ html.stop-scroll {
 }
 
 .clients__item {
-  padding: 40px 20px 30px 30px;
+  padding: 4vh 2vh 3vh 3vh;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   width: 50%;
@@ -1449,7 +1472,8 @@ html.stop-scroll {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 538px;
+  /* min-height: 538px; */
+  height: 57.2vh;
   width: 580px;
 }
 
@@ -1481,9 +1505,9 @@ html.stop-scroll {
   white-space: initial;
   font-family: "Noto Sans";
   font-weight: 300;
-  font-size: 18px;
-  line-height: 30px;
-  padding: 15px 15px 75px;
+  font-size: 1.8vh;
+  line-height: 1.5;
+  padding: 15px 15px 7.5vh;
 }
 
 .review-header {
@@ -1494,7 +1518,7 @@ html.stop-scroll {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 30px;
+  padding: 3.2vh 30px;
 }
 
 .review-header--regular {
@@ -1637,8 +1661,8 @@ html.stop-scroll {
 }
 
 p.recall__text {
-  font-size: 24px;
-  line-height: 33px;
+  font-size: 2.5vh;
+  line-height: 1.4;
   font-family: "Noto Sans";
 }
 
@@ -1651,12 +1675,11 @@ p.recall__text {
   font-family: "Noto Sans Light";
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 58px;
+  font-size: 1.7vh;
+  line-height: 1.5;
+  margin-bottom: 6.1vh;
   max-width: 465px;
-  min-height: 158px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.205);
+  border: none !important;
 }
 
 .about-company p {
@@ -1666,14 +1689,14 @@ p.recall__text {
 .direction-company {
   font-family: "Noto Sans";
   font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1.7rem;
+  line-height: 1.5;
 }
 
 .direction-company__title {
   font-family: "Bebas Neue";
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.5vh;
+  line-height: 1.2;
   letter-spacing: 0.05em;
   font-weight: 400;
   white-space: normal;
@@ -1682,8 +1705,8 @@ p.recall__text {
 .direction-company__item {
   font-family: "Noto Sans";
   font-weight: 300;
-  font-size: 16px;
-  line-height: 36px;
+  font-size: 1.7vh;
+  line-height: 2.2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1708,7 +1731,7 @@ p.recall__text {
 }
 
 .news-item {
-  padding: 21px 40px 34px 28px;
+  padding: 2.2vh 4.2vh 3.6vh 3vh;
   border-bottom: solid rgba(255, 255, 255, 0.2);
   white-space: initial;
 }
@@ -1717,15 +1740,15 @@ p.recall__text {
   font-family: "Noto Sans";
   font-weight: 300;
   font-size: 12px;
-  line-height: 24px;
+  line-height: 2;
   margin-bottom: 7px;
 }
 
 .news-item__text {
   font-family: "Bebas Neue";
-  font-size: 20px;
+  font-size: 2.1vh;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.2;
   letter-spacing: 0.05em;
   word-wrap: break-word;
   -webkit-transition: 0.2s linear;
@@ -1763,8 +1786,8 @@ p.recall__text {
 }
 
 .geography__header {
-  margin-top: 83px;
-  margin-bottom: 46px;
+  margin-top: 8.8vh;
+  margin-bottom: 4.9vh;
 }
 
 .country {
@@ -1779,16 +1802,16 @@ p.recall__text {
 .country__name {
   font-family: "Bebas Neue";
   font-weight: 700;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 3.2vh;
+  line-height: 1;
   letter-spacing: 0.05em;
-  margin-bottom: 15px;
+  margin-bottom: 1.6vh;
 }
 
 .country__city {
   font-family: "Noto Sans";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.5vh;
   line-height: 2;
 }
 
@@ -1949,10 +1972,9 @@ p.recall__text {
 
 .recall__text {
   font-family: "Noto Sans Light";
-  font-size: 24px;
-  line-height: 35px;
+  font-size: 2.5vh;
+  line-height: 1.45;
   white-space: normal;
-  margin-bottom: 27px;
 }
 
 .recall-wrap {
@@ -1982,12 +2004,13 @@ p.recall__text {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 4vh;
 }
 
 .recall__title {
   font-weight: 700;
-  font-size: 64px;
-  line-height: 70px;
+  font-size: 6.8vh;
+  line-height: 1.1;
   max-width: 565px;
   white-space: pre-line;
   letter-spacing: 3px;
@@ -1997,7 +2020,8 @@ p.recall__text {
   z-index: 1;
   position: absolute;
   right: 48%;
-  bottom: -32px;
+  bottom: -3.4vh;
+  height: 91vh;
   -webkit-transform: translateX(48%);
       -ms-transform: translateX(48%);
           transform: translateX(48%);
@@ -2064,9 +2088,9 @@ p.recall__text {
 }
 
 .footer .section__title {
-  font-size: 44px;
-  line-height: 52px;
-  margin-top: 33px;
+  font-size: 4.7vh;
+  line-height: 1.2;
+  margin-top: 3.5vh;
   max-width: 565px;
   white-space: pre-line;
 }
@@ -2075,8 +2099,8 @@ p.recall__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 100px;
-  margin-bottom: 80px;
+  margin-top: 10.6vh;
+  margin-bottom: 5.5vh;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -2128,7 +2152,7 @@ p.recall__text {
 .fp-tableCell {
   /* display: table-cell;
         vertical-align: unset; */
-  padding-top: 120px;
+  /* padding-top: 120px; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2164,7 +2188,7 @@ p.recall__text {
 }
 
 #fp-nav.fp-right {
-  right: 50px;
+  right: 2.6vw;
 }
 
 #fp-nav ul li,
@@ -2172,7 +2196,7 @@ p.recall__text {
   display: block;
   width: 14px;
   height: 13px;
-  margin-bottom: 35px;
+  margin-bottom: 3.7vh;
   position: relative;
 }
 
@@ -2814,6 +2838,12 @@ a.active {
   white-space: pre-wrap;
 }
 
+.platform-list__item > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .platform-list__item::before {
   margin-right: 15px;
   content: "";
@@ -3083,7 +3113,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .list-item__text {
     padding: 40px 0;
-    padding: 40px 90px 40px calc((100vw - 1460px) / 2);
+    padding: 4.7vh 90px 4.9vh calc((100vw - 1460px) / 2);
   }
 }
 
@@ -3101,13 +3131,45 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   }
 
   .tagline {
-    padding-top: 110px;
+    padding-top: 11.7vh;
+  }
+
+  .advantages {
+    margin-top: 5vh;
+  }
+
+  .services-description {
+    padding-top: 11.5vh;
+  }
+
+  .services-description__text {
+    margin-bottom: 5.6vh;
+  }
+
+  .clients__item img {
+    max-width: 70%;
+  }
+
+  .dual-box__left {
+    padding: 0.5vh 14vh 0 0;
+  }
+
+  .dual-box__right {
+    padding: 4.2vh 0 0 13vh;
+  }
+
+  .footer__bottom {
+    margin-top: 4.6vh;
+  }
+
+  .recall__title {
+    font-size: 5.8vh;
   }
 }
 
 @media (max-width: 1600px) {
   .list-item__text {
-    font-size: 25px;
+    font-size: 2.9vh;
   }
 
   .description-item {
@@ -3262,6 +3324,11 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .section {
     min-height: unset;
+    height: auto !important;
+  }
+
+  .section.section-bg-1 {
+    min-height: 100vh;
   }
 
   .header {
@@ -3461,12 +3528,12 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   }
 
   .section {
+    padding-top: 0;
     min-height: unset;
     height: auto;
   }
 
   .fp-tableCell {
-    padding-top: 70px;
     height: auto !important;
   }
 
@@ -3475,6 +3542,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   }
 
   .tagline {
+    padding-top: 23vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3491,6 +3559,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   .list-item__text {
     padding-right: 50px;
     padding-left: calc((100vw - 960px) / 2);
+    font-size: 20px;
   }
 
   .description-item {
@@ -3510,6 +3579,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin: 50px 0;
   }
 
   .advantages .content-container {
@@ -3518,6 +3588,16 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .advantages-box {
     padding-bottom: 0;
+  }
+
+  .advantages-item__list {
+    font-size: 12px;
+  }
+
+  .advantages-item__logo {
+    height: 70px;
+    width: 70px;
+    min-width: 70px;
   }
 
   .dual .content-container {
@@ -3536,8 +3616,8 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .dual-box__left {
     width: 100%;
-    padding: 45px 15px;
-    position: relative;
+    padding: 0 15px 45px;
+    /* position: relative */
   }
 
   .dual-box__right {
@@ -3548,7 +3628,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   }
 
   .dual-box__right--footer {
-    position: relative;
+    /* position: relative */
   }
 
   .dual__background-left {
@@ -3612,7 +3692,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .services-description__text {
     font-size: 13px;
-    line-height: 23px;
+    line-height: 1.6;
     margin-bottom: 20px;
     margin-top: 10px;
     white-space: normal;
@@ -3620,6 +3700,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .services-list {
     width: 100%;
+    margin-bottom: 50px;
   }
 
   .services-list-wrap {
@@ -3627,9 +3708,9 @@ div.cp-lightoverlay.cp-lightoverlay-in {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .services-list-item {
-    height: calc((100% / 7));
-  }
+  /* .services-list-item {
+            height: calc((100% / 7))
+        } */
 
   .services-list-item__text {
     font-size: 20px;
@@ -3637,11 +3718,15 @@ div.cp-lightoverlay.cp-lightoverlay-in {
     padding: 25px 18px;
     white-space: normal;
     width: 57%;
-    height: calc((100% / 7));
+    /* height: calc((100% / 7)) */
   }
 
   .services-list-item__number {
     padding: 15px;
+  }
+
+  .clients__header {
+    margin-top: 50px;
   }
 
   .clients__header--news {
@@ -3667,10 +3752,15 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   }
 
   .review-header {
-    padding: 20px;
+    padding: 2vh;
+  }
+
+  .review__text {
+    font-size: 13px;
   }
 
   .swiper-pagination--regular .about-company {
+    max-width: unset;
     white-space: normal;
     font-size: 12px;
     line-height: 21px;
@@ -3679,8 +3769,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .about-company {
     white-space: normal;
-    font-size: 12px;
-    line-height: 21px;
+    font-size: 13px;
     margin-bottom: 30px;
   }
 
@@ -3690,6 +3779,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .direction-company__title {
     margin-bottom: 30px;
+    font-size: 30px;
   }
 
   .direction-company__item {
@@ -3722,6 +3812,10 @@ div.cp-lightoverlay.cp-lightoverlay-in {
     border-left: solid rgba(255, 255, 255, 0.2);
     white-space: initial;
     border-bottom: unset;
+  }
+
+  .news-item__text {
+    font-size: 20px;
   }
 
   .news-item:nth-last-child(1) {
@@ -3801,6 +3895,30 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   .page-description__background {
     height: 720px;
   }
+
+  .section__title {
+    font-size: 50px;
+  }
+
+  .description-item__text {
+    font-size: 13px;
+  }
+
+  .country {
+    margin-right: 25px;
+  }
+
+  .country__name {
+    font-size: 24px;
+  }
+
+  .country__city {
+    font-size: 13px;
+  }
+
+  .recall-wrap {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 1190px) {
@@ -3839,10 +3957,6 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   .services-description__text {
     max-width: 500px;
     margin: 20px auto;
-  }
-
-  .clients__header {
-    margin-top: 60px;
   }
 
   div.review-box {
@@ -3894,6 +4008,14 @@ div.cp-lightoverlay.cp-lightoverlay-in {
 
   .recall__text {
     text-align: center;
+  }
+
+  .review-box {
+    height: auto;
+  }
+
+  .review__text {
+    padding-bottom: 90px;
   }
 }
 
@@ -4518,7 +4640,7 @@ div.cp-lightoverlay.cp-lightoverlay-in {
   .tagline__title {
     font-size: 48px;
     max-width: 280px;
-    margin-bottom: 10vh;
+    margin-bottom: 25px;
   }
 
   .popup {
